@@ -40,6 +40,7 @@ import OceanPgerTrans from './views/statisticalAnalysis/OceanPgerTrans.vue'
 import PortProduction from './views/statisticalAnalysis/PortProduction.vue'
 import EnergyStruct from './views/statisticalAnalysis/EnergyStruct.vue'
 
+import valueLimitSet from './views/datacheck/valueLimitSet.vue'
 
 let routes = [
     {
@@ -147,6 +148,15 @@ let routes = [
             { path: '/rtBus', pri:['R_ADMIN','R_TRA','R_LAN','R_ENT'],component: bus, name: '公交客运' },
             { path: '/rtRiver', pri:['R_ADMIN','R_TRA','R_WAT','R_ENT'],component: riverShip, name: '内河运输' },
             { path: '/DataInMap', pri:['R_ADMIN','R_TRA','R_LAN','R_WAT','R_ENT'],component: DataInMap, name: '专题图展示'}
+        ]
+    },
+    {
+        path:'/',
+        component:Home,
+        name:'数据校验',
+        iconCls:'fa fa-pencil-square-o',
+        children:[
+            { path: '/thresholdSetting',pri:['R_ADMIN'], component: valueLimitSet, name: '阈值设定'}
         ]
     },
     {

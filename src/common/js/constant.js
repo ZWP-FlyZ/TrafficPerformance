@@ -1,5 +1,5 @@
 export const ajaxAddress = 'http://localhost:8081'
-
+export const dataAjaxAddress = 'http://localhost:8888'
 
 export const indexAjax = '/index.json'
 export const bustranAjax = '/bustranO.json'
@@ -38,5 +38,10 @@ export const getSupport = '/getsupport'
 export const setSupport = '/setsupport'
 
 export const analyzeReport = '/reportallO.json'
+
+export const setValueLimit = '/setrangeO.json'
+export const getValueLimit = 'getrangeO.json'
+
+export const getEvel = '/getevelO.json'
 
 

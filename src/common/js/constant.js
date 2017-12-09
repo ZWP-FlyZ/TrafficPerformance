@@ -40,7 +40,7 @@ export const setSupport = '/setsupport'
 export const analyzeReport = '/reportallO.json'
 
 export const setValueLimit = '/setrangeO.json'
-export const getValueLimit = 'getrangeO.json'
+export const getValueLimit = '/getrangeO.json'
 
 export const getEvel = '/getevelO.json'
 

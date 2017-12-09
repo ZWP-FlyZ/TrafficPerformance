@@ -41,6 +41,7 @@ import PortProduction from './views/statisticalAnalysis/PortProduction.vue'
 import EnergyStruct from './views/statisticalAnalysis/EnergyStruct.vue'
 
 import valueLimitSet from './views/datacheck/valueLimitSet.vue'
+import qualityEval from './views/datacheck/qualityEval.vue'
 
 let routes = [
     {
@@ -156,7 +157,8 @@ let routes = [
         name:'数据校验',
         iconCls:'fa fa-pencil-square-o',
         children:[
-            { path: '/thresholdSetting',pri:['R_ADMIN'], component: valueLimitSet, name: '阈值设定'}
+            { path: '/thresholdSetting',pri:['R_ADMIN'], component: valueLimitSet, name: '阈值设定'},
+            { path: '/getEvel',pri:['R_ADMIN','R_TRA','R_LAN','R_WAT','R_ENT'],component:qualityEval,name:'质量评价'}
         ]
     },
     {

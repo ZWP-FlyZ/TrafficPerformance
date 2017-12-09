@@ -1,6 +1,6 @@
 <template>
    <section class="chart">
-        <el-tabs type="border-card" v-loading ="editLoading">
+        <el-tabs v-model="traffic" type="border-card" v-loading ="editLoading" @tab-click="handleClick">
             <el-tab-pane label="道路客运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
@@ -797,9 +797,11 @@
                     'oilmin','oilmax','gasavg','gasmin','gasmax','elecavg','elecmin','elecmax',
                     'otheravg','othermin','othermax']; 
   var sendData = {};  
+  var resetData  = {};
   export default {
     data() {
       return {
+          traffic:'',
           roadpassform:{
               oilavg:'',
               oilmin:'',
@@ -967,10 +969,11 @@
         checkInput(num){
                 
         },
-        initsendData(formName){
+        initsendData(formName){ 
             if(formName=='roadpassform'){
                 sendData.tranType = '道路客运';
-                sendData.ranges = [];
+                sendData.ranges  = '';
+                var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.roadpassform[element[i]]);
@@ -994,13 +997,15 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='roadgoodsform'){
                 sendData.tranType = '道路货运';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.roadgoodsform[element[i]]);
@@ -1024,13 +1029,15 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='busform'){
                 sendData.tranType = '公交客运';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.busform[element[i]]);
@@ -1054,13 +1061,15 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='taxiform'){
                 sendData.tranType = '出租客运';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.taxiform[element[i]]);
@@ -1084,13 +1093,15 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='riverform'){
                 sendData.tranType = '内河运输';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.riverform[element[i]]);
@@ -1114,13 +1125,16 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
+                    
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='oceanpassform'){
                 sendData.tranType = '海洋客运';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr= [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.oceanpassform[element[i]]);
@@ -1144,13 +1158,15 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='oceangoodsform'){
                 sendData.tranType = '海洋货运';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
                    // console.log(this.oceangoodsform[element[i]]);
@@ -1174,13 +1190,15 @@
                 for(var i=1;i<=element.length;i=i+3){
                     var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
                                 copyForm[element[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
             if(formName=='portproform'){
                 sendData.tranType = '港口生产';
-                sendData.ranges = [];
+                sendData.ranges = '';
+                var rangesArr =[];
                 var copyForm = {};
                 for(var i=0;i<portelement.length;i++){
                    // console.log(this.portproform[portelement[i]]);
@@ -1204,11 +1222,16 @@
                 for(var i=1;i<=portelement.length;i=i+3){
                     var range = copyForm[portelement[i-1]]+'_'+ copyForm[portelement[i]]+'_'+
                                 copyForm[portelement[i+1]];
-                    sendData.ranges.push(range);
+                    rangesArr.push(range);
                 }
+                sendData.ranges = JSON.stringify(rangesArr);
                 console.log(sendData);
             }
-            this.sentDataToService();
+            
+        },
+        handleClick(tab){
+            console.log(tab.label);
+            this.getDataFromService(tab.label);
         },
         submitForm(formName){
             this.$confirm('确认提交吗?', '提示', {
@@ -1216,19 +1239,92 @@
             }).then(() => {
                 //this.editLoading = true;
                 this.initsendData(formName);
+                this.sentDataToService();
             }).catch(() => {
 
             });
-            
-            
-
+        },
+        getDataFromService(tranType){
+            var _this = this;
+            var requestData = {tranType:tranType};
+            console.log(requestData);
+            $.get(this.Constant.dataAjaxAddress+this.Constant.getValueLimit,requestData).
+            done(function(data){
+                console.log(data);
+                if(data.errCode==30){
+                    _this.setFormData(data);
+                    resetData = data;
+                }else if(data.errCode==31){
+                    _this.$message('获取数据失败，请稍后再试');
+                }
+            });
+        },
+        setFormData(data){
+            var formData = [];
+            if(data.ranges == null)
+                return;
+            for(var i=0;i<data.ranges.length;i++){
+                //console.log(data.ranges[i]);
+                var strs = data.ranges[i].split("_");
+               // console.log(strs)
+                for(var j=0;j<strs.length;j++){
+                    if(strs[j]=='N')
+                        formData.push('');
+                    else
+                        formData.push(parseFloat(strs[j]));
+                }
+            }
+            //console.log(formData)
+            if(data.tranType=='道路客运'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.roadpassform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='道路货运'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.roadgoodsform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='公交客运'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.busform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='出租客运'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.taxiform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='内河运输'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.riverform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='海洋货运'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.oceangoodsform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='海洋客运'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.oceanpassform[element[i]] = formData[i];
+                }
+            }
+            if(data.tranType=='港口生产'){
+                for(var i=0 ;i<element.length ;i++){
+                    this.portproform[portelement[i]] = formData[i];
+                }
+            }
         },
         sentDataToService(){
             var _this = this;
+            
             $.get(this.Constant.dataAjaxAddress+this.Constant.setValueLimit,sendData).
             done(function(data){
                 if(data.errCode==30){
                     _this.$message('修改成功！');
+                    resetData.tranType  = sendData.tranType;
+                    resetData.ranges = JSON.parse(sendData.ranges);
                 }else if(data.errCode==31){
                     _this.$message('修改失败，请稍后再试');
                 }else if(data.errCode==44){
@@ -1237,11 +1333,11 @@
             });
         },
         resetForm(formName){
-
+            this.setFormData(resetData);
         }
     },
     mounted:function(){
-		
+		this.getDataFromService("道路客运");
     },
 
   };

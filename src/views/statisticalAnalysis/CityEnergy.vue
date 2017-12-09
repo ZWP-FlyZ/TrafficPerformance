@@ -289,7 +289,6 @@
         mounted: function () {
             cityTypeEnergyPie = echarts.init(document.getElementById('cityTypeEnergyPie'));
             cityTypeEnergyPie.setOption(optionPi);
-;
 
             this.initRequestData(requestData);
             this.initSelectBox();

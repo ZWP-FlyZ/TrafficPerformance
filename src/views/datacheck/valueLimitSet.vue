@@ -1237,7 +1237,6 @@
             this.$confirm('确认提交吗?', '提示', {
                 type: 'info'
             }).then(() => {
-                //this.editLoading = true;
                 this.initsendData(formName);
                 this.sentDataToService();
             }).catch(() => {
@@ -1247,16 +1246,21 @@
         getDataFromService(tranType){
             var _this = this;
             var requestData = {tranType:tranType};
-            console.log(requestData);
+            //console.log(requestData);
+            this.editLoading = true;
             $.get(this.Constant.dataAjaxAddress+this.Constant.getValueLimit,requestData).
             done(function(data){
                 console.log(data);
                 if(data.errCode==30){
+                    _this.editLoading = false;
                     _this.setFormData(data);
+                    
                     resetData = data;
                 }else if(data.errCode==31){
+                    _this.editLoading = false;
                     _this.$message('获取数据失败，请稍后再试');
                 }
+                
             });
         },
         setFormData(data){
@@ -1318,18 +1322,21 @@
         },
         sentDataToService(){
             var _this = this;
-            
+            this.editLoading = true;
             $.get(this.Constant.dataAjaxAddress+this.Constant.setValueLimit,sendData).
             done(function(data){
                 if(data.errCode==30){
                     _this.$message('修改成功！');
+                    _this.editLoading = false;
                     resetData.tranType  = sendData.tranType;
                     resetData.ranges = JSON.parse(sendData.ranges);
                 }else if(data.errCode==31){
+                    _this.editLoading = false;
                     _this.$message('修改失败，请稍后再试');
                 }else if(data.errCode==44){
                     _this.$router.push('/login');
                 }
+                
             });
         },
         resetForm(formName){

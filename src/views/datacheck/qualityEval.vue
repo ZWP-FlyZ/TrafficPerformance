@@ -1,5 +1,6 @@
 <template>
-    <section class="chart">
+    <section>
+        <div class="chart" v-loading = "editLoading">
         <el-row style="background: #B0E0E6">
             <div class="chart-header">
                 <el-select v-model="tranType" filterable placeholder="请选择交通行业" @change="trafficSelectChange">
@@ -43,6 +44,7 @@
         </el-row>
         <el-row>
             <el-table
+                
                 :data="tableData"
                 border
                 height="500"
@@ -88,6 +90,7 @@
                 </b>
             </div>
         </el-row>
+        </div>
     </section>
 </template>
 
@@ -102,6 +105,7 @@
         data(){
             return{
                 inputCompID:'',
+                editLoading:false,
                 tranType:'',
                 optionTraffic:[],
                 pickerOptions0: {
@@ -171,23 +175,23 @@
                 var month = new Date().getMonth();
                 var flag = Math.ceil((month+1)/3)-1;   //上一季度
                 if(flag == 0){
-                    requestData.timeRange = (year-1)+'-10-01:'+ (year-1)+'-12-31';
-                    this.beginDate = new Date(year-1,9);
-                    this.endDate = new Date(year-1,11);
+                    requestData.timeRange = (year-1)+'-10:'+ (year-1)+'-12';
+                   // this.beginDate = new Date(year-1,9);
+                    //this.endDate = new Date(year-1,11);
                 }else{
                     var endmon = flag*3;
                     var startmon =endmon-2;
-                    this.beginDate = new Date(year,startmon-1);
-                    this.endDate = new Date(year,endmon-1);
+                    //this.beginDate = new Date(year,startmon-1);
+                    //this.endDate = new Date(year,endmon-1);
                     if(startmon>=1&&startmon<=9)
                         startmon = '0'+startmon;
                     if(endmon>=1&&endmon<=9)
                         endmon = '0'+endmon;
-                    requestData.timeRange = year+'-'+startmon+'-01:'+ year+'-'+endmon+'-31';
+                    requestData.timeRange = year+'-'+startmon+':'+ year+'-'+endmon;
                     
                 }
                 
-                console.log(requestData);
+                //console.log(requestData);
             },
             trafficSelectChange(tt){
                 if(!tt||tt=='')
@@ -216,12 +220,12 @@
                         bm = '0'+bm;
                     if(em>=1 && em <=9)
                         em = '0'+em;
-                    requestData['timeRange'] = by + '-' + bm +'-01:' + ey + '-' + em + '-31';
+                    requestData['timeRange'] = by + '-' + bm +':' + ey + '-' + em;
                 }
             },
             
             
-            handleIconClick(cid){
+            handleIconClick(){
                 if(this.beginDate=='' || this.endDate==''){
                     this.$message({
                         showClose: true,
@@ -231,15 +235,29 @@
                     });
                     return;
                 }
-                requestData['companyId'] = cid;
+                if(this.beginDate > this.endDate){
+                    this.$message({
+                        showClose: true,
+                        message: '起始年月不能大于结束年月',
+                        type: 'warning',
+                        duration:2500
+                    });
+                    return;
+                }
+                requestData['companyId'] = this.inputCompID;
                 this.getDataFromService();
             },
             getDataFromService(){
                 var _this = this;
+               this.editLoading = true;
+               console.log(requestData);
                 $.get(this.Constant.dataAjaxAddress+this.Constant.getEvel,requestData).
                 done(function(res){
                     if(res.errCode==30){
+                        console.log(res);
+                        _this.editLoading = false;
                         _this.setTableData(res);
+                        
                     }else if(res.errCode==31){
                         _this.$message('获取数据失败，请稍后再试');
                     }
@@ -247,7 +265,7 @@
             },
             
             setTableData(res){
-                console.log(res);
+                
                 this.tableData = [];
                 if(res.rawdata==null||res.rawdata=='')
                     return;
@@ -261,7 +279,7 @@
                     obj.month = ym;
                     obj.companyid = companyId;
                     res.data.forEach(e2 => {
-                        if(e2.ym = ym && e2.companyId == companyId){
+                        if(e2.ym == ym && e2.companyId == companyId){
                             obj.passrate = e2.cot/cot;
                             for(var i=0;i<rankDefine.length;i++){
                                 if(obj.passrate>=rankDefine[i].min&&obj.passrate<rankDefine[i].max){

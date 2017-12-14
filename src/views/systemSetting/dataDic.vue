@@ -105,9 +105,11 @@
 
 							_this.dataDict.splice(0,_this.dataDict.length);
 							var dcs = data.dicts;
-							for(var i = 1;i<=dcs.length;i++)
+							for(var i = 1;i<=dcs.length;i++){
+								if(dcs[i-1].name.indexOf("分类")>0)
 								_this.dataDict.push({index:i,typeName:dcs[i-1].typeName,name:dcs[i-1].name,typeS:dcs[i-1].typeS});
-
+							}
+								
 						}else if(data.errCode==21){
 							window.alert("提交失败")
 						}else if(data.errCode==44)

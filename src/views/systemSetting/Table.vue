@@ -28,7 +28,7 @@
 			<el-table-column prop="p1_p2" label="权限范围" min-width="180" sortable>
 			</el-table-column>
 			<el-table-column label="操作" width="150">
-				<template scope="scope">
+				<template slot-scope="scope">
 					<el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
 					<el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>
 				</template>
@@ -174,21 +174,21 @@
 				addFormVisible: false,//新增界面是否显示
 				addLoading: false,
 				addFormRules: {
-					name: [
-						{ required: true, message: '请输入姓名', trigger: 'blur' }
-					],
-					username: [
-						{ required: true, message: '请输入用户名', trigger: 'blur' }
-					],
-					password: [
-						{ required: true, message: '请输入密码', trigger: 'blur' }
-					],
-					roleName: [
-						{ required: true, message: '如果是企业账户，请输入企业编号', trigger: 'blur' }
-					],
-					roleType: [
-						{ required: true, message: '请输入角色类型', trigger: 'blur' }
-					]
+					// name: [
+					// 	{ required: true, message: '请输入姓名', trigger: 'blur' }
+					// ],
+					// username: [
+					// 	{ required: true, message: '请输入用户名', trigger: 'blur' }
+					// ],
+					// password: [
+					// 	{ required: true, message: '请输入密码', trigger: 'blur' }
+					// ],
+					// roleName: [
+					// 	{ required: true, message: '如果是企业账户，请输入企业编号', trigger: 'blur' }
+					// ],
+					// roleType: [
+					// 	{ required: true, message: '请输入角色类型', trigger: 'blur' }
+					// ]
 
 				},
 				//新增界面数据
@@ -358,6 +358,26 @@
 					roleType:'交通厅',
 					p1_p2_arr:['全省','全市']
 				}
+			},
+			checkUserInfo(user){
+				if(para.place1==='')
+					delete ui.place1;
+				else
+					ui.place1 = para.place1;
+				if(para.place2==='')
+					delete ui.place2;
+				else
+					ui.place2 = para.place2;
+
+				if(para.roleName==='')
+					delete ui.roleName;
+				else
+					ui.roleName = para.roleName;
+					
+				if(para.phone==='')
+					delete ui.phone;
+				else
+					ui.phone = para.phone;
 			},
 			//编辑
 			editSubmit() {

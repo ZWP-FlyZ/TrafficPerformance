@@ -359,25 +359,13 @@
 					p1_p2_arr:['全省','全市']
 				}
 			},
-			checkUserInfo(user){
-				if(para.place1==='')
-					delete ui.place1;
-				else
-					ui.place1 = para.place1;
-				if(para.place2==='')
-					delete ui.place2;
-				else
-					ui.place2 = para.place2;
-
-				if(para.roleName==='')
-					delete ui.roleName;
-				else
-					ui.roleName = para.roleName;
-					
-				if(para.phone==='')
-					delete ui.phone;
-				else
-					ui.phone = para.phone;
+			checkUserInfo(para){
+				if(para.username=='')
+					return false;
+				
+				if(para.password=='')
+					return false;
+				return true;
 			},
 			//编辑
 			editSubmit() {
@@ -436,6 +424,13 @@
 					//NProgress.start();
 					let para = Object.assign({}, this.addForm);
 					console.log(para);
+					
+					if(!this.checkUserInfo(para)){
+						this.$message.error('请检查用户名与密码是否为空！');
+						this.addLoading = false;
+						return;
+					}
+
 					var ui = {};
 					ui.token = this.$token;
 					ui.username = para.username;

@@ -633,8 +633,7 @@ export default {
         }
     },
     mounted() {
-        var requestData = {};
-
+        requestData = {};
         _mytimerange = '上一季度';
         engerSortArr = [];
         citySortArr = [];

@@ -256,10 +256,14 @@ export default {
             if(userInfo.roleName!=null && userInfo.roleName!="")
                 requestData.roleName = userInfo.roleName;
             requestData.roleType = userInfo.roleType;
-            if(userInfo.place1!=null && userInfo.place1!="")
-                requestData.place1 =userInfo.place1;
-            if(userInfo.place2!=null && userInfo.place2!="")
-                requestData.place2 = userInfo.place2;          
+                if(userInfo.place1!=null && userInfo.place1!="")
+                    requestData.place1 =userInfo.place1;
+                else
+                    delete  requestData.place1;
+                if(userInfo.place2!=null && userInfo.place2!="")
+                    requestData.place2 = userInfo.place2;
+                else
+                    delete  requestData.place2;        
             this.selectYearMonth(year);
            
         },
@@ -325,7 +329,7 @@ export default {
         allEngChgChart = echarts.init(document.getElementById('allEngChgChart'));
         allEngChgChart.setOption(optionMonEngAll);
 
-
+        requestData = {};
         this.initRequestData(requestData);
         //this.getDataFromService(requestData);
     },

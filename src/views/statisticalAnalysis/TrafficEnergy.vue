@@ -176,7 +176,9 @@
                     requestData.cityType = "杭州";
                 }
                 if(userInfo.place2!=null && userInfo.place2!="")
-                    requestData.place2 = userInfo.place2;          
+                    requestData.place2 = userInfo.place2;
+                else
+                    delete   requestData.place2;         
                 requestData.timeRange = year+'-'+month+'-01:'+year+'-'+month+'-31';
 
                 this.countDate = year+'年'+month+'月';

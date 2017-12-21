@@ -239,6 +239,7 @@
                 }
                 var token = getCookie('token');
                 var userInfo = JSON.parse(getCookie('userInfo'));
+                console.log("coki",userInfo);
                 requestData.token = token;
                 requestData.username = userInfo.name;
                 if(userInfo.roleName!=null && userInfo.roleName!="")
@@ -246,16 +247,24 @@
                 requestData.roleType = userInfo.roleType;
                 if(userInfo.place1!=null && userInfo.place1!="")
                     requestData.place1 =userInfo.place1;
+                else
+                    delete  requestData.place1;
                 if(userInfo.place2!=null && userInfo.place2!="")
-                    requestData.place2 = userInfo.place2;          
+                    requestData.place2 = userInfo.place2;
+                else
+                    delete  requestData.place2;          
                 requestData.timeRange = year+'-'+month+'-01:'+year+'-'+month+'-31';
 
                 this.countDate = year+'年'+month+'月';
                 beforeMonth = requestData.timeRange;
             },
 
+            upUserForRequestData(){
+
+            },
+
             getDataFromService(requestData){
-                console.log(requestData);
+                console.log("index data",requestData);
                 //requestData['timeRange'] = '2013-09-01:2013-10-31'; 
                 var _this = this;
                 energyTypePie.showLoading({text:'加载中'});
@@ -395,7 +404,7 @@
             this.initRequestData(requestData);
             this.getDataFromService(requestData);
             this.EngTypeChange();
-            
+            console.log("index","mount hear");
         },
         updated: function () {
             console.log("update");

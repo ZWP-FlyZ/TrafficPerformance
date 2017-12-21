@@ -795,7 +795,7 @@
                 
             },
             selectOther(){
-                k = 1;
+                k = 3;
                 if(this.beginDate!='' && this.endDate!=''){
                     if(this.beginDate > this.endDate){
                         this.$message({

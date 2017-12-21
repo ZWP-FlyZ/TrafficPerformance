@@ -291,8 +291,18 @@
             }
         },
         mounted: function () {
+
+            dataForCityEngAll = [];
+            beforTimeRange = '';
+            beforTran ='';
+            requestData = {}; 
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+
             cityTypeEnergyPie = echarts.init(document.getElementById('cityTypeEnergyPie'));
             cityTypeEnergyPie.setOption(optionPi);
+            
 
             this.initRequestData(requestData);
             this.initSelectBox();

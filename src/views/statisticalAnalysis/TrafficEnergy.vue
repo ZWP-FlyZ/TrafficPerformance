@@ -269,8 +269,17 @@
 
         },
         mounted: function () {
+
+            dataForTranEngAll = [];
+            requestData = {};
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+
             trafficTypeEnergyPie = echarts.init(document.getElementById('trafficTypeEnergyPie'));
             trafficTypeEnergyPie.setOption(optionPi);
+
+            
 
             this.initSelectBox();
             this.initRequestData(requestData);

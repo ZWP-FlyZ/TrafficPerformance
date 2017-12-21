@@ -1000,7 +1000,7 @@
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='roadgoodsform'){
                 sendData.tranType = '道路货运';
@@ -1032,7 +1032,7 @@
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='busform'){
                 sendData.tranType = '公交客运';
@@ -1064,7 +1064,7 @@
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='taxiform'){
                 sendData.tranType = '出租客运';
@@ -1096,7 +1096,7 @@
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='riverform'){
                 sendData.tranType = '内河运输';
@@ -1129,7 +1129,7 @@
                     
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='oceanpassform'){
                 sendData.tranType = '海洋客运';
@@ -1161,7 +1161,7 @@
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='oceangoodsform'){
                 sendData.tranType = '海洋货运';
@@ -1193,7 +1193,7 @@
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             if(formName=='portproform'){
                 sendData.tranType = '港口生产';
@@ -1230,7 +1230,7 @@
             
         },
         handleClick(tab){
-            console.log(tab.label);
+            //console.log(tab.label);
             this.getDataFromService(tab.label);
         },
         submitForm(formName){
@@ -1250,7 +1250,7 @@
             this.editLoading = true;
             $.get(this.Constant.dataAjaxAddress+this.Constant.getValueLimit,requestData).
             done(function(data){
-                console.log(data);
+                //console.log(data);
                 if(data.errCode==30){
                     _this.editLoading = false;
                     _this.setFormData(data);
@@ -1344,6 +1344,8 @@
             });
         },
         resetForm(formName){
+            sendData = {};  
+            resetData  = {};
             this.setFormData(resetData);
         }
     },

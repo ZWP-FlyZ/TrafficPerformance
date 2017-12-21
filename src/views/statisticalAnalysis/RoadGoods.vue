@@ -414,7 +414,7 @@
 
     function setData(res){
       
-        console.log(res);
+        //console.log(res);
         var monthData = new Object();
         var engerData = {};
        // var carTypeData={};
@@ -441,7 +441,7 @@
             var ts= res.xs[4];
             for(var i=1;i<=ts.length;i++)
                 carTypeMap['c'+i] = ts[i-1];
-            console.log(carTypeMap);
+            //console.log(carTypeMap);
         }
 
         res.engTypOther.forEach(function(element){
@@ -585,7 +585,7 @@
         //车辆类型吨位数据
         var other;
         var hasOther;
-        console.log(carTonMap);
+        //console.log(carTonMap);
 
         res.xs[2].forEach(function(i) {
             var tmpEngDatas =[];
@@ -886,12 +886,47 @@
             } 
         },
         mounted: function () {
+
+            dataForEngAll = [];//各能源饼图
+            dataForTonPer = [];//不同吨位
+            dataForScalePer =[];//不同规模
+            dataForEngTon = [];//不同燃料不同吨位
+            dataForCarTon = [];//车辆类型
+            dataForMon = [];//年度图表
+
+            carTypeMap=null;
+
+            k=1; //标志
+            _year = (new Date).getFullYear().toString();
+            beforTimeRange = '';
+            beforeYear = '';
+            requestData = {} ;
+
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+            optionTon.series.forEach(function(e){
+                e.data=[];
+            });
+            optionScale.series.forEach(function(e){
+                e.data=[];
+            });
+            optionEngTon.series = [];
+            optionCarTon.series = [];
+            option.series.forEach(function(e){
+                e.data=[];
+            });
+
+
+            
             energyPieChart = echarts.init(document.getElementById('energyPieChart'));
             tonnageChart = echarts.init(document.getElementById('tonnageChart'));
             companyChart = echarts.init(document.getElementById('companyChart'));
             engTonChart = echarts.init(document.getElementById('engTonChart'));
             carTonChart = echarts.init(document.getElementById('carTonChart'));
             energyByYearChart = echarts.init(document.getElementById('energyByYearChart'))
+
+
 
             energyPieChart.setOption(optionPi);
             tonnageChart.setOption(optionTon);

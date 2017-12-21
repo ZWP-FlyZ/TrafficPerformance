@@ -556,11 +556,12 @@ export default {
                 trafficBar[1].push((eng/10000).toFixed(2));
 
             }
-            if(trafficSortArr.length>0){
+            var userInfo = JSON.parse(getCookie('userInfo'));
+            if(trafficSortArr.length>4){
                 this.trfficresult = '能源消耗量前三的交通子行业为'+trafficSortArr[0].name+',占'+(trafficSortArr[0].eng/total[0]*100).toFixed(2)+"%；"+
                                 '其次是'+trafficSortArr[1].name+'，占'+(trafficSortArr[1].eng/total[0]*100).toFixed(2)+"%；"+
                                  '第三是'+trafficSortArr[2].name+'，占'+(trafficSortArr[2].eng/total[0]*100).toFixed(2)+"%。"
-            }
+            } 
             
             
             /*---- 各地市部分填写----*/

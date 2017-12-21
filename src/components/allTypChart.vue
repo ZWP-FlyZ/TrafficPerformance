@@ -27,13 +27,13 @@
             </el-col>
         </el-row>
       <el-row>
-            <el-col class="chart-container">
-                <div id="allTypChart"style="width:100%; height:400px;" class="chart-content"></div>
+            <el-col class="chart-container" id = "allTypCol">
+                <div id="allTypChart" style="width:100%; height:400px;" class="chart-content"></div>
             </el-col>
       </el-row>
       <el-row>
-            <el-col class="chart-container">
-                <div id="oceanTypChart"style="width:100%; height:400px;" class="chart-content"></div>
+            <el-col class="chart-container" id = "oceanCol">
+                <div id="oceanTypChart" style="width:100%; height:400px;" class="chart-content"></div>
             </el-col>
       </el-row>    
   </section>
@@ -184,7 +184,7 @@ function setData(res){
     });
     var roadType = res.xs[0].slice(0,4);
     var oceanType = res.xs[0].slice(4,7);
-    console.log(traEngMap)
+    //console.log(traEngMap)
     res.xs[1].forEach(function(element){
         var tmpEngDatas = [];
         var oanEngDatas=[];
@@ -231,7 +231,7 @@ function setData(res){
 
         }
     });
-    console.log(oceanEngSeries)
+    //console.log(oceanEngSeries)
     dataForTraEng.splice(0,dataForTraEng.length);
     dataForTraEng.push(res.xs[1]);
     dataForTraEng.push(roadType);
@@ -301,26 +301,36 @@ export default {
         },
         getDataFromService(requestData){
             var _this = this;
-            allTypChart.showLoading({text:'加载中'});
-            oceanTypChart.showLoading({text:'加载中'})
+            if(allTypChart!=null)
+                allTypChart.showLoading({text:'加载中'});
+            if(oceanTypChart!=null)
+                oceanTypChart.showLoading({text:'加载中'})
             
             $.get(this.Constant.ajaxAddress+this.Constant.perdisengAjax,requestData).
             done(function (res){
-                    allTypChart.hideLoading();
-                    oceanTypChart.hideLoading();
+                    if(allTypChart!=null)
+                        allTypChart.hideLoading();
+                    if(oceanTypChart!=null)
+                        oceanTypChart.hideLoading();
                     if(res.errCode==30){//data ok
                         setData(res);
-                        optionTraEng.legend.data = dataForTraEng[0];
-                        optionTraEng.xAxis[0].data = dataForTraEng[1];
-                        optionTraEng.series = dataForTraEng[2];
-                        allTypChart.clear();
-                        allTypChart.setOption(optionTraEng);
-
-                        optionOcean.legend.data = dataForOanEng[0];
-                        optionOcean.xAxis[0].data = dataForOanEng[1];
-                        optionOcean.series = dataForOanEng[2];
-                        oceanTypChart.clear();
-                        oceanTypChart.setOption(optionOcean);
+                        //console.log(allTypChart)
+                        
+                        if(allTypChart!=null){
+                            optionTraEng.legend.data = dataForTraEng[0];
+                            optionTraEng.xAxis[0].data = dataForTraEng[1];
+                            optionTraEng.series = dataForTraEng[2];
+                            allTypChart.clear();
+                            allTypChart.setOption(optionTraEng);
+                        }
+                       //console.log(oceanTypChart)
+                        if(oceanTypChart!=null){
+                            optionOcean.legend.data = dataForOanEng[0];
+                            optionOcean.xAxis[0].data = dataForOanEng[1];
+                            optionOcean.series = dataForOanEng[2];
+                            oceanTypChart.clear();
+                            oceanTypChart.setOption(optionOcean);
+                        } 
                     }else if(res.errCode==31){ // data err
                         _this.$message({
                             showClose: true,
@@ -366,12 +376,23 @@ export default {
         },
     },
     mounted:function(){
-        allTypChart = echarts.init(document.getElementById('allTypChart'));
-        allTypChart.setOption(optionTraEng);
-
-        oceanTypChart = echarts.init(document.getElementById('oceanTypChart'));
-        oceanTypChart.setOption(optionOcean);
-
+        var userInfo = JSON.parse(getCookie('userInfo'));
+        allTypChart = null;
+        oceanTypChart = null;
+        if(userInfo.roleType=='R_LAN'){
+            allTypChart = echarts.init(document.getElementById('allTypChart'));
+            allTypChart.setOption(optionTraEng);
+            document.getElementById("oceanCol").style.backgroundColor = "white";
+        }else if(userInfo.roleType=="R_WAT"){
+            oceanTypChart = echarts.init(document.getElementById('allTypChart'));
+            oceanTypChart.setOption(optionOcean);
+            document.getElementById("oceanCol").style.backgroundColor = "white";
+        }else{
+            allTypChart = echarts.init(document.getElementById('allTypChart'));
+            allTypChart.setOption(optionTraEng);
+            oceanTypChart = echarts.init(document.getElementById('oceanTypChart'));
+            oceanTypChart.setOption(optionOcean);
+        }
         this.initRequestData(requestData);
         this.getDataFromService(requestData);
         

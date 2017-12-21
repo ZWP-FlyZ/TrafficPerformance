@@ -1265,17 +1265,21 @@
         },
         setFormData(data){
             var formData = [];
-            if(data.ranges == null)
-                return;
-            for(var i=0;i<data.ranges.length;i++){
-                //console.log(data.ranges[i]);
-                var strs = data.ranges[i].split("_");
-               // console.log(strs)
-                for(var j=0;j<strs.length;j++){
-                    if(strs[j]=='N')
-                        formData.push('');
-                    else
-                        formData.push(parseFloat(strs[j]));
+            if(data.ranges == null){
+                for(var i=0;i<18;i++){
+                    formData.push('');
+                }
+            }else{
+                for(var i=0;i<data.ranges.length;i++){
+                    //console.log(data.ranges[i]);
+                    var strs = data.ranges[i].split("_");
+                    // console.log(strs)
+                    for(var j=0;j<strs.length;j++){
+                        if(strs[j]=='N')
+                            formData.push('');
+                        else
+                            formData.push(parseFloat(strs[j]));
+                    }
                 }
             }
             //console.log(formData)

@@ -235,7 +235,7 @@
                         optionPi.series[0].data = dataForCityEngAll[1];
                         cityTypeEnergyPie.clear();
                         cityTypeEnergyPie.setOption(optionPi);
-                        console.log(res);
+                        //console.log(res);
                     }else if(res.errCode==31){ // data err
                         _this.$message({
                             showClose: true,

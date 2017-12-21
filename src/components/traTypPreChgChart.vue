@@ -157,13 +157,13 @@ var optionMonEngAll = {
 };
 
 function setData(res){
+    //console.log(res);
     var monEngMap ={};
     var monEngUnitSeries =[];
     var monEngAllSeries =[];
 
     var xAisMon = [_year+'-01',_year+'-02',_year+'-03',_year+'-04',_year+'-05',_year+'-06',
             _year+'-07',_year+'-08',_year+'-09',_year+'-10',_year+'-11',_year+'-12']
-    
     res.traTypOther.forEach(function(element){ 
         element.traTypMo.forEach(function(e2){
             if(!monEngMap[element.baseTyp])
@@ -176,7 +176,16 @@ function setData(res){
             monEngMap[element.baseTyp][e2.type] =t;
         });
     });
-    res.xs[1].forEach(function(element){
+
+    var userInfo = JSON.parse(getCookie('userInfo'));
+    if(userInfo.roleType=='R_LAN')
+        var traffic = ['道路客运','道路货运','公交客运','出租客运'];
+    else if(userInfo.roleType=='R_WAT')
+        var traffic = ['海洋客运','海洋货运','内河运输'];
+    else
+        var traffic = ['道路客运','道路货运','公交客运','出租客运','海洋客运','海洋货运','内河运输']
+
+    traffic.forEach(function(element){
         var tmpUnitEngDatas = [];
         var tmpAllEngDatas =[];
         if(!monEngMap[element]){
@@ -215,12 +224,12 @@ function setData(res){
     });
 
     dataForMonEngUnit.splice(0,dataForMonEngUnit.length);
-    dataForMonEngUnit.push(res.xs[1]);
+    dataForMonEngUnit.push(traffic);
     dataForMonEngUnit.push(res.xs[0]);
     dataForMonEngUnit.push(monEngUnitSeries);
 
     dataForMonEngAll.splice(0,dataForMonEngAll.length);
-    dataForMonEngAll.push(res.xs[1]);
+    dataForMonEngAll.push(traffic);
     dataForMonEngAll.push(res.xs[0]);
     dataForMonEngAll.push(monEngAllSeries);
 };
@@ -268,7 +277,7 @@ export default {
            
         },
         getDataFromService(requestData){
-            console.log(requestData);
+            //console.log(requestData);
             var _this = this;
             unitEngChgChart.showLoading({text:'加载中'});
             allEngChgChart.showLoading({text:'加载中'});

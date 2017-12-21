@@ -516,14 +516,10 @@ export default {
             if(userInfo.roleName!=null && userInfo.roleName!="")
                 requestData.roleName = userInfo.roleName;
             requestData.roleType = userInfo.roleType;
-                if(userInfo.place1!=null && userInfo.place1!="")
-                    requestData.place1 =userInfo.place1;
-                else
-                    delete  requestData.place1;
-                if(userInfo.place2!=null && userInfo.place2!="")
-                    requestData.place2 = userInfo.place2;
-                else
-                    delete  requestData.place2;        
+            if(userInfo.place1!=null && userInfo.place1!="")
+                requestData.place1 =userInfo.place1;
+            if(userInfo.place2!=null && userInfo.place2!="")
+                requestData.place2 = userInfo.place2;          
             requestData.timeRange = year+'-'+month+'-01:'+year+'-'+month+'-31';
 
             this.countDate = year+'年'+month+'月';
@@ -661,7 +657,7 @@ export default {
     },
     mounted:function()
     {
-        console.log("bus mount in");
+
         perAllRelChart = echarts.init(document.getElementById('perAllRelChart'));
         engTypeAllChart = echarts.init(document.getElementById('engTypeAllChart'));
         engTypeChart = echarts.init(document.getElementById('engTypeChart'));
@@ -670,11 +666,6 @@ export default {
         engTypeAllChart.setOption(optionPi);
         engTypeChart.setOption(optionEng);
         engClsChart.setOption(optionClsEng);
-        var dataForMoth = [];//年度图表
-        var dataForEngCls = [];//能源车长
-        var dataForEngPer = [];//各能源类型单耗
-        var dataForEngAll = [];//各能源饼图
-        var k = 1;//标志
         this.initRequestData(requestData);
         this.getDataFromService(requestData);
 

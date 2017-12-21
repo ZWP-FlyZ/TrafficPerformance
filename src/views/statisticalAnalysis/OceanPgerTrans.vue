@@ -791,6 +791,34 @@
             } 
         },
         mounted: function () {
+
+            dataForEngAll = [];//各能源饼图
+            dataForEngPer = [];//各能源单耗柱状图
+            dataForDisPer = [];//各运距单耗
+            dataForScalePer = [];//各规模企业类型单耗
+            dataForEngPsger = [];//能源客位
+            dataForMoth = [];//年度图表
+            
+            k=1; //标志
+            _year = (new Date).getFullYear().toString();
+            requestData = {};
+
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+            optionEng.series.forEach(function(e){
+                e.data=[];
+            });
+            optionDistance.series.forEach(function(e){
+                e.data=[];
+            });
+            optionScale.series.forEach(function(e){
+                e.data=[];
+            });
+            optionEngPsger.series = [];
+            option.series.forEach(function(e){
+                e.data=[];
+            });
             energyPieChart = echarts.init(document.getElementById('energyPieChart'));
             unitEnergyChart = echarts.init(document.getElementById('unitEnergyChart'));
             distanceShipChart = echarts.init(document.getElementById('distanceShipChart'));

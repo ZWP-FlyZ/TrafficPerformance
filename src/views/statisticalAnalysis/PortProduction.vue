@@ -513,6 +513,23 @@
             } 
         },
         mounted: function () {
+
+            dataForEngAll = [];//各能源饼图
+            dataForScalePer = [];//各规模企业类型单耗
+            dataForMoth = [];//年度图表
+            k=1; //标志
+            _year = (new Date).getFullYear().toString();
+            requestData = {};
+
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+            optionScale.series.forEach(function(e){
+                e.data=[];
+            });
+            option.series.forEach(function(e){
+                e.data=[];
+            });
             energyPieChart = echarts.init(document.getElementById('energyPieChart'));
             companyChart = echarts.init(document.getElementById('companyChart'));
             energyByYearChart = echarts.init(document.getElementById('energyByYearChart'));

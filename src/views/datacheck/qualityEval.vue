@@ -250,11 +250,11 @@
             getDataFromService(){
                 var _this = this;
                this.editLoading = true;
-               console.log(requestData);
+               //console.log(requestData);
                 $.get(this.Constant.dataAjaxAddress+this.Constant.getEvel,requestData).
                 done(function(res){
                     if(res.errCode==30){
-                        console.log(res);
+                        //console.log(res);
                         _this.editLoading = false;
                         _this.setTableData(res);
                         
@@ -301,6 +301,7 @@
 
         },
         mounted:function(){
+            requestData={};
             this.initSelectBox();
             this.initRequestData(requestData);
             this.getDataFromService();

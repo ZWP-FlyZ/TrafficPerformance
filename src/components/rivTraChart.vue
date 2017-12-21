@@ -793,7 +793,31 @@
             }     
         },
         mounted: function () {
-            
+            console.log("river mount in");
+            dataForMoth = [];//年度图表
+            dataForScalePer = [];//各规模企业类型单耗
+            dataForEngTog = [];//能源吨位
+            dataforTogShip =[];//吨位船舶类型
+            dataForEngAll = [];//各能源饼图
+            k=1; //标志
+
+            requestData = {};
+
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+            optionScale.series.forEach(function(e){
+                e.data=[];
+            });
+            optionEngTog.series.forEach(function(e){
+                e.data=[];
+            });
+            optionTogShip.series.forEach(function(e){
+                e.data=[];
+            });
+            option.series.forEach(function(e){
+                e.data=[];
+            });
 
             energyPieChart = echarts.init(document.getElementById('energyPieChart'));
             companyChart = echarts.init(document.getElementById('companyChart'));
@@ -807,7 +831,6 @@
             seaShipChart.setOption(optionTogShip);
             energyByYearChart.setOption(option);
 
-            requestData = {};
             this.initRequestData(requestData);
             this.getDataFromService(requestData);
         },

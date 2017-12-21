@@ -383,6 +383,18 @@ export default {
         var userInfo = JSON.parse(getCookie('userInfo'));
         allTypChart = null;
         oceanTypChart = null;
+
+        requestData = {};
+        dataForTraEng = [];//运输类型燃料
+        dataForOanEng = [];
+
+        optionTraEng.series.forEach(function(e){
+            e.data=[];
+        });
+        optionOcean.series.forEach(function(e){
+            e.data=[];
+        });
+
         if(userInfo.roleType=='R_LAN'){
             allTypChart = echarts.init(document.getElementById('allTypChart'));
             allTypChart.setOption(optionTraEng);
@@ -397,7 +409,7 @@ export default {
             oceanTypChart = echarts.init(document.getElementById('oceanTypChart'));
             oceanTypChart.setOption(optionOcean);
         }
-        requestData = {};
+
         this.initRequestData(requestData);
         this.getDataFromService(requestData);
         

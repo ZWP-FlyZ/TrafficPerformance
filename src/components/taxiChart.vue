@@ -650,7 +650,25 @@ export default {
     },
     mounted:function()
     {
-
+        requestData = {};
+        dataForMoth = [];//年度图表
+        dataForEngPs = [];//排量车长
+        dataForEngPer = [];//各能源类型单耗
+        dataForEngAll = [];//各能源饼图
+        k = 1;//标志
+        option.series.forEach(function(e){
+            e.data=[];
+        });
+        optionPi.series.forEach(function(e){
+            e.data=[];
+        });
+        optionEng.series.forEach(function(e){
+            e.data=[];
+        });
+        optionClsEng.series.forEach(function(e){
+            e.data=[];
+        });
+     
         perAllRelChart = echarts.init(document.getElementById('perAllRelChart'));
         engTypeAllChart = echarts.init(document.getElementById('engTypeAllChart'));
         engTypeChart = echarts.init(document.getElementById('engTypeChart'));
@@ -659,7 +677,7 @@ export default {
         engTypeAllChart.setOption(optionPi);
         engTypeChart.setOption(optionEng);
         engPsChart.setOption(optionClsEng);
-        requestData = {};
+        
         this.initRequestData(requestData);
         this.getDataFromService(requestData);
 

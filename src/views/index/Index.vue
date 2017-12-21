@@ -397,6 +397,14 @@
             }
         },
         mounted: function () {
+
+            requestData = {};
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+            optionMon.series.forEach(function(e){
+                e.data=[];
+            });
             energyTypePie = echarts.init(document.getElementById('energyTypePie'));
             barChart = echarts.init(document.getElementById('barChart'));
             energyTypePie.setOption(optionPi);

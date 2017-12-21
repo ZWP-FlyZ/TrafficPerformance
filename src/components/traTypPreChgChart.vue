@@ -333,6 +333,16 @@ export default {
         }    
     },
     mounted:function(){
+        dataForMonEngUnit =[];
+        dataForMonEngAll = [];
+        requestData={};
+        optionMonEngUnit.series.forEach(function(e){
+            e.data=[];
+        });
+        optionMonEngAll.series.forEach(function(e){
+            e.data=[];
+        });
+        
         unitEngChgChart = echarts.init(document.getElementById('unitEngChgChart'));
         unitEngChgChart.setOption(optionMonEngUnit);
         allEngChgChart = echarts.init(document.getElementById('allEngChgChart'));

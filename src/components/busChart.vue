@@ -662,6 +662,27 @@ export default {
     mounted:function()
     {
         console.log("bus mount in");
+        dataForMoth = [];//年度图表
+        dataForEngCls = [];//能源车长
+        dataForEngPer = [];//各能源类型单耗
+        dataForEngAll = [];//各能源饼图
+        k = 1;//标志
+
+        requestData={};
+        
+        optionPi.series.forEach(function(e){
+            e.data=[];
+        });
+        optionEng.series.forEach(function(e){
+            e.data=[];
+        });
+        optionClsEng.series.forEach(function(e){
+            e.data=[];
+        });
+        option.series.forEach(function(e){
+            e.data=[];
+        });
+
         perAllRelChart = echarts.init(document.getElementById('perAllRelChart'));
         engTypeAllChart = echarts.init(document.getElementById('engTypeAllChart'));
         engTypeChart = echarts.init(document.getElementById('engTypeChart'));
@@ -670,11 +691,6 @@ export default {
         engTypeAllChart.setOption(optionPi);
         engTypeChart.setOption(optionEng);
         engClsChart.setOption(optionClsEng);
-        var dataForMoth = [];//年度图表
-        var dataForEngCls = [];//能源车长
-        var dataForEngPer = [];//各能源类型单耗
-        var dataForEngAll = [];//各能源饼图
-        var k = 1;//标志
         this.initRequestData(requestData);
         this.getDataFromService(requestData);
 

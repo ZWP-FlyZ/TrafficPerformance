@@ -633,12 +633,28 @@ export default {
         }
     },
     mounted() {
-        requestData = {};
-       this.initRequestData(requestData);
-       this.getDataFromService(requestData);
-       trafficChart = echarts.init(document.getElementById('trafficchart'));
-       cityChart = echarts.init(document.getElementById('citychart'));
-       engerChart = echarts.init(document.getElementById('engerchart'));
+        var requestData = {};
+
+        _mytimerange = '上一季度';
+        engerSortArr = [];
+        citySortArr = [];
+        trafficSortArr = [];
+        total = [0,0,0];   //存储能耗总和，交通方式、地市、燃料类型
+        optionTraffic.series.forEach(function(e){
+            e.data=[];
+        });
+        optionCity.series.forEach(function(e){
+            e.data=[];
+        });
+        optionEnger.series.forEach(function(e){
+            e.data=[];
+        });
+        
+        this.initRequestData(requestData);
+        this.getDataFromService(requestData);
+        trafficChart = echarts.init(document.getElementById('trafficchart'));
+        cityChart = echarts.init(document.getElementById('citychart'));
+        engerChart = echarts.init(document.getElementById('engerchart'));
 
     }
 }

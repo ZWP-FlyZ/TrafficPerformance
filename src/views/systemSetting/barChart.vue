@@ -851,6 +851,36 @@
             
         },
         mounted: function () {
+
+            dataForEngAll = [];//各能源饼图
+            dataForScalePer =[];//不同规模
+            dataForCarPer = [];//车辆类型
+            dataForDisPer =[];//运距类型
+            dataForEngPsger = [];//能源客位
+            dataForMon = [];//年度图表
+            k=1; //标志
+
+            requestData = {};
+
+            optionPi.series.forEach(function(e){
+                e.data=[];
+            });
+            optionScale.series.forEach(function(e){
+                e.data=[];
+            });
+            optionDistance.series.forEach(function(e){
+                e.data=[];
+            });
+            optionCarType.series.forEach(function(e){
+                e.data=[];
+            });
+            optionEngPsger.series.forEach(function(e){
+                e.data=[];
+            });
+            option.series.forEach(function(e){
+                e.data=[];
+            });
+                        
             energyPieChart = echarts.init(document.getElementById('energyPieChart'));
             companyChart = echarts.init(document.getElementById('companyChart'));
             distanceChart = echarts.init(document.getElementById('distanceChart'));
@@ -864,6 +894,7 @@
             carTypeChart.setOption(optionCarType);
             guestChart.setOption(optionEngPsger);
             energyByYearChart.setOption(option);
+
             this.initRequestData(requestData);
             this.getDataFromService(requestData);
             

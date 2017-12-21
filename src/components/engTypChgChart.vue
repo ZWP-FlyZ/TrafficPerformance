@@ -445,12 +445,25 @@
             }
         },
         mounted:function(){
+
+            dataForEngAll=[];
+            dataForEngSort = [];
+
+            requestData = {};
+            engYearMon3Map = {};
+
+            option.series.forEach(function(e){
+                e.data=[];
+            });
+            optionSort.series.forEach(function(e){
+                e.data=[];
+            });
+ 
             engYearChgChart = echarts.init(document.getElementById('engYearChgChart'));
             engYearSortChart = echarts.init(document.getElementById('engYearSortChart'));
             engYearChgChart.setOption(option);
             engYearSortChart.setOption(optionSort);
 
-            requestData = {};
             this.initRequestData(requestData)
             this.getDataFromService(requestData);
             

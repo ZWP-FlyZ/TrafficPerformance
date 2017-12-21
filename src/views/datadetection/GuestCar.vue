@@ -529,6 +529,20 @@ export default {
         }
     },
     mounted:function(){
+        relTimeData = [];//油气柱状图数据
+        relTimeDataCo = [];//标煤曲线图数据
+
+        selectDs = [];
+        requestData={};
+
+
+        option.series.forEach(function(e){
+            e.data=[];
+        });
+        optionCo.series.forEach(function(e){
+            e.data=[];
+        });
+
         relTimeChart =  echarts.init(document.getElementById('relTimeChart'));
         relTimeChartCo = echarts.init(document.getElementById('relTimeChartCo'));
         relTimeChart.setOption(option);

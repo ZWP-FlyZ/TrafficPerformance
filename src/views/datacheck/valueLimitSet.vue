@@ -4,7 +4,7 @@
             <el-tab-pane label="道路客运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -13,7 +13,7 @@
                         <el-form :model="roadpassform" label-width="180px" ref="roadpassform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadpassform.oilavg"></el-input>
+                                    <el-input v-model="roadpassform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadpassform.oilmin"></el-input>
@@ -26,7 +26,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadpassform.gasavg"></el-input>
+                                    <el-input v-model="roadpassform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadpassform.gasmin"></el-input>
@@ -39,7 +39,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadpassform.elecavg"></el-input>
+                                    <el-input v-model="roadpassform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadpassform.elecmin"></el-input>
@@ -52,7 +52,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadpassform.otheravg"></el-input>
+                                    <el-input v-model="roadpassform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadpassform.othermin"></el-input>
@@ -65,7 +65,7 @@
                             </el-form-item>
                             <el-form-item label="旅客周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadpassform.turnoveravg"></el-input>
+                                    <el-input v-model="roadpassform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadpassform.turnovermin"></el-input>
@@ -78,7 +78,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadpassform.rundisavg"></el-input>
+                                    <el-input v-model="roadpassform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadpassform.rundismin"></el-input>
@@ -102,7 +102,7 @@
             <el-tab-pane label="道路货运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -111,7 +111,7 @@
                         <el-form :model="roadgoodsform" label-width="180px" ref="roadgoodsform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadgoodsform.oilavg"></el-input>
+                                    <el-input v-model="roadgoodsform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadgoodsform.oilmin"></el-input>
@@ -124,7 +124,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadgoodsform.gasavg"></el-input>
+                                    <el-input v-model="roadgoodsform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadgoodsform.gasmin"></el-input>
@@ -137,7 +137,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadgoodsform.elecavg"></el-input>
+                                    <el-input v-model="roadgoodsform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadgoodsform.elecmin"></el-input>
@@ -150,7 +150,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadgoodsform.otheravg"></el-input>
+                                    <el-input v-model="roadgoodsform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadgoodsform.othermin"></el-input>
@@ -163,7 +163,7 @@
                             </el-form-item>
                             <el-form-item label="货运周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadgoodsform.turnoveravg"></el-input>
+                                    <el-input v-model="roadgoodsform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadgoodsform.turnovermin"></el-input>
@@ -176,7 +176,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="roadgoodsform.rundisavg"></el-input>
+                                    <el-input v-model="roadgoodsform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="roadgoodsform.rundismin"></el-input>
@@ -200,7 +200,7 @@
             <el-tab-pane label="公交客运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -209,7 +209,7 @@
                         <el-form :model="busform" label-width="180px" ref="busform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="busform.oilavg"></el-input>
+                                    <el-input v-model="busform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="busform.oilmin"></el-input>
@@ -222,7 +222,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="busform.gasavg"></el-input>
+                                    <el-input v-model="busform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="busform.gasmin"></el-input>
@@ -235,7 +235,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="busform.elecavg"></el-input>
+                                    <el-input v-model="busform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="busform.elecmin"></el-input>
@@ -248,7 +248,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="busform.otheravg"></el-input>
+                                    <el-input v-model="busform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="busform.othermin"></el-input>
@@ -261,7 +261,7 @@
                             </el-form-item>
                             <el-form-item label="旅客周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="busform.turnoveravg"></el-input>
+                                    <el-input v-model="busform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="busform.turnovermin"></el-input>
@@ -274,7 +274,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="busform.rundisavg"></el-input>
+                                    <el-input v-model="busform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="busform.rundismin"></el-input>
@@ -298,7 +298,7 @@
             <el-tab-pane label="出租客运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -307,7 +307,7 @@
                         <el-form :model="taxiform" label-width="180px" ref="taxiform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="taxiform.oilavg"></el-input>
+                                    <el-input v-model="taxiform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="taxiform.oilmin"></el-input>
@@ -320,7 +320,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="taxiform.gasavg"></el-input>
+                                    <el-input v-model="taxiform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="taxiform.gasmin"></el-input>
@@ -333,7 +333,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="taxiform.elecavg"></el-input>
+                                    <el-input v-model="taxiform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="taxiform.elecmin"></el-input>
@@ -346,7 +346,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="taxiform.otheravg"></el-input>
+                                    <el-input v-model="taxiform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="taxiform.othermin"></el-input>
@@ -359,7 +359,7 @@
                             </el-form-item>
                             <el-form-item label="旅客周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="taxiform.turnoveravg"></el-input>
+                                    <el-input v-model="taxiform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="taxiform.turnovermin"></el-input>
@@ -372,7 +372,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="taxiform.rundisavg"></el-input>
+                                    <el-input v-model="taxiform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="taxiform.rundismin"></el-input>
@@ -396,7 +396,7 @@
             <el-tab-pane label="内河运输">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -405,7 +405,7 @@
                         <el-form :model="riverform" label-width="180px" ref="riverform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="riverform.oilavg"></el-input>
+                                    <el-input v-model="riverform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="riverform.oilmin"></el-input>
@@ -418,7 +418,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="riverform.gasavg"></el-input>
+                                    <el-input v-model="riverform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="riverform.gasmin"></el-input>
@@ -431,7 +431,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="riverform.elecavg"></el-input>
+                                    <el-input v-model="riverform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="riverform.elecmin"></el-input>
@@ -444,7 +444,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="riverform.otheravg"></el-input>
+                                    <el-input v-model="riverform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="riverform.othermin"></el-input>
@@ -457,7 +457,7 @@
                             </el-form-item>
                             <el-form-item label="货运周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="riverform.turnoveravg"></el-input>
+                                    <el-input v-model="riverform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="riverform.turnovermin"></el-input>
@@ -470,7 +470,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="riverform.rundisavg"></el-input>
+                                    <el-input v-model="riverform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="riverform.rundismin"></el-input>
@@ -495,7 +495,7 @@
             <el-tab-pane label="海洋客运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -504,7 +504,7 @@
                         <el-form :model="oceanpassform" label-width="180px" ref="oceanpassform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceanpassform.oilavg"></el-input>
+                                    <el-input v-model="oceanpassform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceanpassform.oilmin"></el-input>
@@ -517,7 +517,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceanpassform.gasavg"></el-input>
+                                    <el-input v-model="oceanpassform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceanpassform.gasmin"></el-input>
@@ -530,7 +530,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceanpassform.elecavg"></el-input>
+                                    <el-input v-model="oceanpassform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceanpassform.elecmin"></el-input>
@@ -543,7 +543,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceanpassform.otheravg"></el-input>
+                                    <el-input v-model="oceanpassform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceanpassform.othermin"></el-input>
@@ -556,7 +556,7 @@
                             </el-form-item>
                             <el-form-item label="旅客周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceanpassform.turnoveravg"></el-input>
+                                    <el-input v-model="oceanpassform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceanpassform.turnovermin"></el-input>
@@ -569,7 +569,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceanpassform.rundisavg"></el-input>
+                                    <el-input v-model="oceanpassform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceanpassform.rundismin"></el-input>
@@ -593,7 +593,7 @@
             <el-tab-pane label="海洋货运">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -602,7 +602,7 @@
                         <el-form :model="oceangoodsform" label-width="180px" ref="oceangoodsform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceangoodsform.oilavg"></el-input>
+                                    <el-input v-model="oceangoodsform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceangoodsform.oilmin"></el-input>
@@ -615,7 +615,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceangoodsform.gasavg"></el-input>
+                                    <el-input v-model="oceangoodsform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceangoodsform.gasmin"></el-input>
@@ -628,7 +628,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceangoodsform.elecavg"></el-input>
+                                    <el-input v-model="oceangoodsform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceangoodsform.elecmin"></el-input>
@@ -641,7 +641,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceangoodsform.otheravg"></el-input>
+                                    <el-input v-model="oceangoodsform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceangoodsform.othermin"></el-input>
@@ -654,7 +654,7 @@
                             </el-form-item>
                             <el-form-item label="货运周转量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceangoodsform.turnoveravg"></el-input>
+                                    <el-input v-model="oceangoodsform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceangoodsform.turnovermin"></el-input>
@@ -667,7 +667,7 @@
                             </el-form-item>
                             <el-form-item label="运行距离阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="oceangoodsform.rundisavg"></el-input>
+                                    <el-input v-model="oceangoodsform.rundisavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="oceangoodsform.rundismin"></el-input>
@@ -691,7 +691,7 @@
             <el-tab-pane label="港口生产">
                 <el-row>
                     <div class="chart-content" style="font-weight:bold;text-align:center">
-                        <el-col :span="3" :offset="6">均值</el-col>
+                        <el-col :span="3" :offset="6">均值(仅读)</el-col>
                         <el-col :span="4" :offset="2">区间范围</el-col>
                     </div>
                 </el-row>
@@ -700,7 +700,7 @@
                         <el-form :model="portproform" label-width="180px" ref="portproform" label-position="right">
                             <el-form-item label="燃油消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="portproform.oilavg"></el-input>
+                                    <el-input v-model="portproform.oilavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="portproform.oilmin"></el-input>
@@ -713,7 +713,7 @@
                             </el-form-item>
                             <el-form-item label="燃气消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="portproform.gasavg"></el-input>
+                                    <el-input v-model="portproform.gasavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="portproform.gasmin"></el-input>
@@ -726,7 +726,7 @@
                             </el-form-item>
                             <el-form-item label="电能消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="portproform.elecavg"></el-input>
+                                    <el-input v-model="portproform.elecavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="portproform.elecmin"></el-input>
@@ -739,7 +739,7 @@
                             </el-form-item>
                             <el-form-item label="其他燃料消耗量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="portproform.otheravg"></el-input>
+                                    <el-input v-model="portproform.otheravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="portproform.othermin"></el-input>
@@ -752,7 +752,7 @@
                             </el-form-item>
                             <el-form-item label="生产量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="portproform.turnoveravg"></el-input>
+                                    <el-input v-model="portproform.turnoveravg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="portproform.turnovermin"></el-input>
@@ -765,7 +765,7 @@
                             </el-form-item>
                             <el-form-item label="吞吐量阈值设定">
                                 <el-col :span="4">
-                                    <el-input v-model="portproform.throughoutavg"></el-input>
+                                    <el-input v-model="portproform.throughoutavg" :readonly="true"></el-input>
                                 </el-col>
                                 <el-col :span="4" :offset="1">
                                     <el-input v-model="portproform.throughoutmin"></el-input>
@@ -798,6 +798,7 @@
                     'otheravg','othermin','othermax']; 
   var sendData = {};  
   var resetData  = {};
+  var curentTab = "";
   export default {
     data() {
       return {
@@ -969,34 +970,63 @@
         checkInput(num){
                 
         },
-        initsendData(formName){ 
+        initsendData(formName){     
             if(formName=='roadpassform'){
                 sendData.tranType = '道路客运';
                 sendData.ranges  = '';
                 var rangesArr = [];
                 var copyForm = {};
                 for(var i=0;i<element.length;i++){
-                   // console.log(this.roadpassform[element[i]]);
+                    //console.log(this.roadpassform[element[i]]);
                     var num = this.roadpassform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    //console.log(num.toString().indexOf(" "));
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        copyForm[element[i]] = 'N';
+                        this.roadpassform[element[i]]='';                  
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.roadpassform[element[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
+                
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.roadpassform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.roadpassform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+min+'_'+max;
+                    
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
@@ -1010,25 +1040,50 @@
                 for(var i=0;i<element.length;i++){
                    // console.log(this.roadgoodsform[element[i]]);
                     var num = this.roadgoodsform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        copyForm[element[i]] = 'N';
+                        this.roadgoodsform[element[i]]='';          
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.roadgoodsform[element[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正式格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.roadgoodsform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.roadgoodsform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
@@ -1042,25 +1097,51 @@
                 for(var i=0;i<element.length;i++){
                    // console.log(this.busform[element[i]]);
                     var num = this.busform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为正确格式的数字（或为空值）',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){          
+                        copyForm[element[i]] = 'N';
+                        this.busform[element[i]]='';
+                        
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.busform[element[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.busform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.busform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
@@ -1074,25 +1155,50 @@
                 for(var i=0;i<element.length;i++){
                    // console.log(this.taxiform[element[i]]);
                     var num = this.taxiform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){          
+                        copyForm[element[i]] = 'N';
+                        this.taxiform[element[i]]='';
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
-                            //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.taxiform[element[i]]='';
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
+                            //console.log(i);    
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.taxiform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.taxiform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
@@ -1106,27 +1212,52 @@
                 for(var i=0;i<element.length;i++){
                    // console.log(this.riverform[element[i]]);
                     var num = this.riverform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){ 
+                        copyForm[element[i]] = 'N';
+                        this.riverform[element[i]]='';         
+                        
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.riverform[element[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.riverform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.riverform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
-                    
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
                 //console.log(sendData);
@@ -1139,25 +1270,50 @@
                 for(var i=0;i<element.length;i++){
                    // console.log(this.oceanpassform[element[i]]);
                     var num = this.oceanpassform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){ 
+                        copyForm[element[i]] = 'N';
+                        this.oceanpassform[element[i]]='';           
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.oceanpassform[element[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.oceanpassform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.oceanpassform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
@@ -1171,25 +1327,50 @@
                 for(var i=0;i<element.length;i++){
                    // console.log(this.oceangoodsform[element[i]]);
                     var num = this.oceangoodsform[element[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){      
+                        copyForm[element[i]] = 'N';
+                        this.oceangoodsform[element[i]]='';          
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[element[i]] = 'N';
-                            this.oceangoodsform[element[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[element[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=element.length;i=i+3){
-                    var range = copyForm[element[i-1]]+'_'+ copyForm[element[i]]+'_'+
-                                copyForm[element[i+1]];
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=element.length;i=i+3){
+                    var min = copyForm[element[i]];
+                    var max = copyForm[element[i+1]];
+                    var avg = copyForm[element[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.oceangoodsform[element[i-1]]=avg;
+                        copyForm[element[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.oceangoodsform[element[i-1]]='';
+                        copyForm[element[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
@@ -1203,34 +1384,61 @@
                 for(var i=0;i<portelement.length;i++){
                    // console.log(this.portproform[portelement[i]]);
                     var num = this.portproform[portelement[i]];
-                    if(isNaN(num)||num.toString().indexOf(" ")>=0){          
-                        this.$message({
-                            message: '均值和区间范围必须为数字',
-                            type: 'warning'
-                        });
-                        return;
+                    if(num==''||num==null||new RegExp("^[ ]+$").test(num)){   
+                        copyForm[portelement[i]] = 'N';
+                        this.portproform[portelement[i]]='';       
+                        
                     }else{
-                        if(num==''||num==null||new RegExp("^[ ]+$").test(num)){
+                        if(isNaN(num)||num.toString().indexOf(" ")>=0){
                             //console.log(i);
-                            copyForm[portelement[i]] = 'N';
-                            this.portproform[portelement[i]]='';
+                            this.$message({
+                                message: '区间范围必须为正确格式的数字',
+                                type: 'warning'
+                            });
+                            return;
                         }else{
                             copyForm[portelement[i]] = num;
                         }
                     }
                 }
                 for(var i=1;i<=portelement.length;i=i+3){
-                    var range = copyForm[portelement[i-1]]+'_'+ copyForm[portelement[i]]+'_'+
-                                copyForm[portelement[i+1]];
+                    var min = copyForm[portelement[i]];
+                    var max = copyForm[portelement[i+1]];
+                    //console.log(min+" "+max);
+                    if(min!='N'&&max!='N'){
+                        if(Number(min)>Number(max)){
+                            this.$message({
+                                message: '区间范围的下限值应小于上限值',
+                                type: 'warning'
+                            });
+                            return;
+                        }
+                    }      
+                } 
+                for(var i=1;i<=portelement.length;i=i+3){
+                    var min = copyForm[portelement[i]];
+                    var max = copyForm[portelement[i+1]];
+                    var avg = copyForm[portelement[i-1]];
+                    if(min!='N'&&max!='N'){
+                        avg = ((Number(min)+Number(max))/2).toFixed(2);
+                        this.portproform[portelement[i-1]]=avg;
+                        copyForm[portelement[i-1]] = avg;
+                    }else{
+                        avg='N';
+                        this.portproform[portelement[i-1]]='';
+                        copyForm[portelement[i-1]] = avg;
+                    }
+                    var range = avg+'_'+ min+'_'+max;
                     rangesArr.push(range);
                 }
                 sendData.ranges = JSON.stringify(rangesArr);
-                console.log(sendData);
+                //console.log(sendData);
             }
             
         },
         handleClick(tab){
             //console.log(tab.label);
+            curentTab = tab.label;
             this.getDataFromService(tab.label);
         },
         submitForm(formName){
@@ -1238,6 +1446,8 @@
                 type: 'info'
             }).then(() => {
                 this.initsendData(formName);
+                if(sendData.ranges=="")
+                    return;
                 this.sentDataToService();
             }).catch(() => {
 
@@ -1250,7 +1460,7 @@
             this.editLoading = true;
             $.get(this.Constant.dataAjaxAddress+this.Constant.getValueLimit,requestData).
             done(function(data){
-                //console.log(data);
+                console.log(data);
                 if(data.errCode==30){
                     _this.editLoading = false;
                     _this.setFormData(data);
@@ -1259,6 +1469,7 @@
                 }else if(data.errCode==31){
                     _this.editLoading = false;
                     _this.$message('获取数据失败，请稍后再试');
+                    
                 }
                 
             });
@@ -1277,8 +1488,13 @@
                     for(var j=0;j<strs.length;j++){
                         if(strs[j]=='N')
                             formData.push('');
-                        else
-                            formData.push(parseFloat(strs[j]));
+                        else{
+                            if(j==0)
+                                formData.push(parseFloat(strs[j]).toFixed(2));
+                            else
+                                formData.push(parseFloat(strs[j]));
+                        }
+                            
                     }
                 }
             }
@@ -1327,6 +1543,7 @@
         sentDataToService(){
             var _this = this;
             this.editLoading = true;
+            //console.log(sendData);
             $.get(this.Constant.dataAjaxAddress+this.Constant.setValueLimit,sendData).
             done(function(data){
                 if(data.errCode==30){
@@ -1337,6 +1554,7 @@
                 }else if(data.errCode==31){
                     _this.editLoading = false;
                     _this.$message('修改失败，请稍后再试');
+                    _this.resetForm(curentTab);
                 }else if(data.errCode==44){
                     _this.$router.push('/login');
                 }
@@ -1344,12 +1562,15 @@
             });
         },
         resetForm(formName){
-            sendData = {};  
-            resetData  = {};
+
             this.setFormData(resetData);
+            
         }
     },
     mounted:function(){
+        sendData = {};  
+        resetData  = {};
+        curentTab = "";
 		this.getDataFromService("道路客运");
     },
 

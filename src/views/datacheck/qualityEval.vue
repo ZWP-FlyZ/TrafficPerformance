@@ -13,6 +13,9 @@
                     </el-option>
                 </el-select>
             </div>
+            <div style="margin-top:20px;margin-left:550px">
+                统计期：{{ countDate }}
+            </div>
         </el-row>    
         <el-row style="background: #D1EEEE">  
             <div class="chart-header">
@@ -107,6 +110,7 @@
                 inputCompID:'',
                 editLoading:false,
                 tranType:'',
+                countDate:'',
                 optionTraffic:[],
                 pickerOptions0: {
                     disabledDate(time) {
@@ -176,6 +180,7 @@
                 var flag = Math.ceil((month+1)/3)-1;   //上一季度
                 if(flag == 0){
                     requestData.timeRange = (year-1)+'-10:'+ (year-1)+'-12';
+                    this.countDate = (year-1)+"年10月 至 "+(year-1)+"年12月";
                    // this.beginDate = new Date(year-1,9);
                     //this.endDate = new Date(year-1,11);
                 }else{
@@ -188,7 +193,7 @@
                     if(endmon>=1&&endmon<=9)
                         endmon = '0'+endmon;
                     requestData.timeRange = year+'-'+startmon+':'+ year+'-'+endmon;
-                    
+                    this.countDate = year+'年'+startmon+'月 至 '+year+'年'+endmon+'月';
                 }
                 
                 //console.log(requestData);
@@ -221,6 +226,10 @@
                     if(em>=1 && em <=9)
                         em = '0'+em;
                     requestData['timeRange'] = by + '-' + bm +':' + ey + '-' + em;
+                    if(by==ey&&bm==em)
+                        this.countDate = by+'年'+bm+'月';
+                    else
+                        this.countDate = by+'年'+bm+'月 至 '+ey+'年'+em+'月';
                 }
             },
             

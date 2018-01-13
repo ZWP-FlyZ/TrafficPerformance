@@ -561,6 +561,7 @@ export default {
 
             }
             var userInfo = JSON.parse(getCookie('userInfo'));
+            this.trfficresult = ""; // 这里加上这句话
             if(trafficSortArr.length>4){
                 this.trfficresult = '能源消耗量前三的交通子行业为'+trafficSortArr[0].name+',占'+(trafficSortArr[0].eng/total[0]*100).toFixed(2)+"%；"+
                                 '其次是'+trafficSortArr[1].name+'，占'+(trafficSortArr[1].eng/total[0]*100).toFixed(2)+"%；"+

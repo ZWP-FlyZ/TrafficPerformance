@@ -325,8 +325,8 @@ export default {
                     if(TMu.typDatOfAllLen==0) 
                             t[0] = t[1] =0;
                     else{
-                        t[0] = (TMu.typDatOfAllEng / TMu.typDatOfAllLen*100).toFixed(2);
-                        t[1] = (TMu.typDatOfAllCo / TMu.typDatOfAllLen*100).toFixed(2);
+                        t[0] = (TMu.typDatOfAllEng / TMu.typDatOfAllLen/100).toFixed(2);
+                        t[1] = (TMu.typDatOfAllCo / TMu.typDatOfAllLen/100).toFixed(2);
                     }
                     engTMuMap[eng.baseTyp][TMu.type] = t;              
                 });
@@ -486,7 +486,7 @@ export default {
                 relTimeChartCo.hideLoading();
                 if(res.errCode==30){//data ok
                     _this.setData(res);
-                    
+                    console.log('res=',res);
                     var c = '浙江省';
                     if(_this.inputRank=='地市'&&_this.inputCode!="")
                         c = res.cityType+"市";
